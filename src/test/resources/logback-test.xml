@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    [
+      <!ENTITY log-dir "/usr/local/var/log/jobs/cbt/JOB_CBT_0003_0004_0001/">
+      <!ENTITY default-mail-from "cn-cdc-ecapi-alert@mail.rakuten.com">
+      <!ENTITY default-mail-to "cn-cdc-ecapi-alert@mail.rakuten.com">
+    ]
+>
+<configuration>
+	<property resource="logback.properties" />
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%white(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %magenta(${PID:- }) %white(- [%15.15t{14}]) \(%cyan(%-40.40logger{39}) %white(:) %L\) %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${${spring.profiles.active}.appender.stdout.level:-TRACE}</level>
+        </filter>
+    </appender>
+	
+	<!-- main appender -->
+	<appender name="main" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--日志文件输出的文件名 -->
+		<file>${${spring.profiles.active}.log.dir}/main.log</file>
+		<!-- <file>&default-log-dir;main.log</file> -->
+		<append>true</append>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d %-5p [%-10t] [%40.40c{40}] - %m [%F:%L]%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>${${spring.profiles.active}.logger.main.level:-TRACE}</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!--日志文件输出的文件名 -->
+			<fileNamePattern>${${spring.profiles.active}.log.dir}/main.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep n days' worth of history -->
+			<maxHistory>100</maxHistory>
+		</rollingPolicy>
+	</appender>
+	
+    <!-- Suppress a false warn for issue BATCH-2161 https://jira.spring.io/browse/BATCH-2161 -->
+    <logger name="org.springframework.context.annotation.ConfigurationClassEnhancer" level="ERROR" />
+    <!-- Suppress a false warn for issue https://github.com/mybatis/mybatis-spring-boot/issues/9 -->
+    <logger name="org.springframework.beans.factory.support.DisposableBeanAdapter" level="ERROR" />
+
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="ch.qos.logback" level="ERROR" />
+    
+    <logger name="com.example" level="DEBUG" additivity="false">
+    	<appender-ref ref="stdout" />
+        <appender-ref ref="main" />
+    </logger>
+    <logger name="com.zac" level="DEBUG" additivity="false">
+    	<appender-ref ref="stdout" />
+        <appender-ref ref="main" />
+    </logger>
+      
+    <root level="WARN" />
+</configuration>
