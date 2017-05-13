@@ -1,7 +1,9 @@
 package com.sample.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.sample.business.form.UserForm;
 import com.sample.business.model.User;
 import com.sample.business.service.UserService;
 
@@ -47,10 +50,10 @@ public class UserController {
 		* モデルオブジェクトの初期化
 		*/
 	@ModelAttribute("form")
-	public Form newRequest(
+	public UserForm newRequest(
 		 @RequestParam(required=false, value="user.id") String userId
 	) {
-		Form f = new Form();
+		UserForm f = new UserForm();
 		//
 		User user = null;
 		if(userId == null){
@@ -67,7 +70,7 @@ public class UserController {
 	
 	//リクエスト処理------------------------------------------
 	@RequestMapping(value="edit/input", method=RequestMethod.GET)
-	public String input(Form form) {
+	public String input(UserForm form) {
 		//既にnewRequestでモデルをDBから取り出し、設定しているので何もする必要がない
 		return "user-Edit-Input";
 	}
@@ -75,7 +78,7 @@ public class UserController {
 	
 
 	@RequestMapping(value="edit/confirm", method=RequestMethod.POST)
-	public String confirm(@Valid Form form, BindingResult result) {
+	public String confirm(@Valid UserForm form, BindingResult result) {
 		//@Validを指定したモデルは妥当性チェックが実行される。
 		if(result.hasErrors()){
 			return "user-Edit-Input";
@@ -86,7 +89,7 @@ public class UserController {
 	
 
 	@RequestMapping(value="edit/finish", method=RequestMethod.POST)
-	public String finish(@Valid Form form, BindingResult result) throws Exception {
+	public String finish(@Valid UserForm form, BindingResult result) throws Exception {
 		if(result.hasErrors()){
 		 return "user-Edit-Input";
 		}
@@ -94,21 +97,5 @@ public class UserController {
 		//データ更新
 		this.userService.updateUser(form.user);
 		return "user-Edit-Finish";
-	}
-	
-	
-	//---------------------------------------------
-	//フォーム(HTML用のパラメタを受け取れるように作っておいた方がよいと思います)
-	public static class Form{
-		@Valid
-		private User user;
-
-		public User getUser() {
-			return user;
-		}
-
-		public void setUser(User user) {
-			this.user = user;
-		}
 	}
 }
