@@ -1,4 +1,4 @@
-package com.sample.business.model;
+package com.zac.business.model;
 
 import java.util.Date;
 

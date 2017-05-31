@@ -1,0 +1,2 @@
+<!-- 外部ファイルを使うため -->
+<mvc:resources mapping="/resources/**" location="/resources/" />

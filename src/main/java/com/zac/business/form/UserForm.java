@@ -1,8 +1,8 @@
-package com.sample.business.form;
+package com.zac.business.form;
 
 import javax.validation.Valid;
 
-import com.sample.business.model.User;
+import com.zac.business.model.User;
 
 /**
  * フォーム(HTML用のパラメタを受け取れるように作っておいた方がよいと思います)

@@ -1,10 +1,10 @@
-package com.sample.dao;
+package com.zac.dao;
 
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import com.sample.business.model.User;
+import com.zac.business.model.User;
 
  
 

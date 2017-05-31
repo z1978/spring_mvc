@@ -1,1 +1,135 @@
 https://sites.google.com/site/soracane/home/mavenpurojekuto
+
+/spring_mvc/src/main/webapp/WEB-INF/mvc-config.xml
+/spring_mvc/src/main/webapp/resources/js/ajax_test.js
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="<c:url value="/resources/js/ajax_test.js" />"></script>
+
+
+class UserService 不加 @Component(value="userService") 标签
+会发生以下错误
+五月 31, 2017 9:28:01 下午 org.springframework.test.context.TestContextManager retrieveTestExecutionListeners
+信息: @TestExecutionListeners is not present for class [class com.zac.test.junitTestSample]: using defaults.
+21:28:01,544 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+21:28:01,544 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [file:/Users/zhangningbo/git/spring_mvc/target/test-classes/logback-test.xml]
+21:28:01,654 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+21:28:01,672 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+21:28:01,678 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stdout]
+21:28:01,689 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:28:01,748 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+21:28:01,754 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [main]
+21:28:01,759 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:28:01,781 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1807383905 - No compression will be used
+21:28:01,783 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1807383905 - Will use the pattern spring.profiles.active_IS_UNDEFINED.log.dir_IS_UNDEFINED/main.%d{yyyy-MM-dd}.%i.log for the active file
+21:28:01,787 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@207da288 - The date pattern is 'yyyy-MM-dd' from file name pattern 'spring.profiles.active_IS_UNDEFINED.log.dir_IS_UNDEFINED/main.%d{yyyy-MM-dd}.%i.log'.
+21:28:01,787 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@207da288 - Roll-over at midnight.
+21:28:01,790 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@207da288 - Setting initial period to Wed May 31 21:28:01 JST 2017
+21:28:01,791 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@207da288 - SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead
+21:28:01,791 |-WARN in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@207da288 - For more information see http://logback.qos.ch/manual/appenders.html#SizeAndTimeBasedRollingPolicy
+21:28:01,794 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[main] - Active log file name: spring.profiles.active_IS_UNDEFINED.log.dir_IS_UNDEFINED/main.log
+21:28:01,794 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[main] - File property is set to [spring.profiles.active_IS_UNDEFINED.log.dir_IS_UNDEFINED/main.log]
+21:28:01,798 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework.context.annotation.ConfigurationClassEnhancer] to ERROR
+21:28:01,798 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework.beans.factory.support.DisposableBeanAdapter] to ERROR
+21:28:01,798 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework] to ERROR
+21:28:01,799 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [ch.qos.logback] to ERROR
+21:28:01,799 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.zac] to DEBUG
+21:28:01,799 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [com.zac] to false
+21:28:01,799 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [stdout] to Logger[com.zac]
+21:28:01,800 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [main] to Logger[com.zac]
+21:28:01,800 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.zac] to DEBUG
+21:28:01,800 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [com.zac] to false
+21:28:01,801 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [stdout] to Logger[com.zac]
+21:28:01,801 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [main] to Logger[com.zac]
+21:28:01,801 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to WARN
+21:28:01,801 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+21:28:01,803 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@18399f62 - Registering current configuration as safe fallback point
+
+[37m2017-05-31 21:28:01.813[0;39m [39mDEBUG[0;39m [35m [0;39m [37m- [           main][0;39m ([36mcom.zac.test.junitTestSample            [0;39m [37m:[0;39m 70) *** START ***
+五月 31, 2017 9:28:01 下午 org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory initDatabase
+信息: Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+五月 31, 2017 9:28:02 下午 org.springframework.jdbc.datasource.init.ScriptUtils executeSqlScript
+信息: Executing SQL script from class path resource [SQLs/zac_db_schema.sql]
+五月 31, 2017 9:28:02 下午 org.springframework.jdbc.datasource.init.ScriptUtils executeSqlScript
+信息: Executed SQL script from class path resource [SQLs/zac_db_schema.sql] in 8 ms.
+[37m2017-05-31 21:28:03.088[0;39m [39mDEBUG[0;39m [35m [0;39m [37m- [           main][0;39m ([36mcom.zac.test.junitTestSample            [0;39m [37m:[0;39m 86) *** END ***
+五月 31, 2017 9:28:03 下午 org.springframework.context.support.GenericApplicationContext prepareRefresh
+信息: Refreshing org.springframework.context.support.GenericApplicationContext@42014c90: startup date [Wed May 31 21:28:03 JST 2017]; root of context hierarchy
+五月 31, 2017 9:28:03 下午 org.mybatis.spring.mapper.ClassPathMapperScanner doScan
+警告: No MyBatis mapper was found in '[com.zac.dao]' package. Please check your configuration.
+五月 31, 2017 9:28:03 下午 org.springframework.context.support.GenericApplicationContext refresh
+警告: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.zac.business.service.UserService com.zac.controller.UserController.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.zac.business.service.UserService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+五月 31, 2017 9:28:03 下午 org.springframework.test.context.TestContextManager prepareTestInstance
+严重: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7d122682] to prepare test instance [com.zac.test.junitTestSample@329e60f4]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.zac.business.service.UserService com.zac.controller.UserController.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.zac.business.service.UserService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:772)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 25 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.zac.business.service.UserService com.zac.controller.UserController.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.zac.business.service.UserService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:573)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 40 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.zac.business.service.UserService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1373)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1119)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1014)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:545)
+	... 42 more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

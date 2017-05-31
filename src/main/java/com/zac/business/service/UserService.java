@@ -1,9 +1,12 @@
-package com.sample.business.service;
-import com.sample.business.model.User;
-import com.sample.dao.UserDao;
+package com.zac.business.service;
+import org.springframework.stereotype.Component;
+
+import com.zac.business.model.User;
+import com.zac.dao.UserDao;
 
 
 //本当はインターフェースからimplemetsすべきですが、ここでは簡略のためそのままクラスを作っています。
+@Component(value="userService")
 public class UserService {
 	private UserDao userDao;
 	

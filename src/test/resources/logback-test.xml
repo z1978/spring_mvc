@@ -50,7 +50,7 @@
     <logger name="org.springframework" level="ERROR" />
     <logger name="ch.qos.logback" level="ERROR" />
     
-    <logger name="com.example" level="DEBUG" additivity="false">
+    <logger name="com.zac" level="DEBUG" additivity="false">
     	<appender-ref ref="stdout" />
         <appender-ref ref="main" />
     </logger>
